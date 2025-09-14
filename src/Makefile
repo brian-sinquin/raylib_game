@@ -33,7 +33,7 @@ PROJECT_NAME          ?= raylib_game
 PROJECT_VERSION       ?= 1.0
 PROJECT_BUILD_PATH    ?= .
 PROJECT_SOURCE_FILES  ?= \
-    main.c \
+    main.cpp \
 
 # raylib library variables
 RAYLIB_SRC_PATH       ?= ../../raylib/src
@@ -137,6 +137,7 @@ endif
 # Define default C compiler: CC
 #------------------------------------------------------------------------------------------------
 CC = gcc
+CXX = g++
 
 ifeq ($(PLATFORM),PLATFORM_DESKTOP)
     ifeq ($(PLATFORM_OS),OSX)
@@ -162,17 +163,6 @@ ifeq ($(PLATFORM),PLATFORM_DRM)
     endif
 endif
 
-
-# Define default make program: MAKE
-#------------------------------------------------------------------------------------------------
-MAKE ?= make
-
-ifeq ($(PLATFORM),PLATFORM_DESKTOP)
-    ifeq ($(PLATFORM_OS),WINDOWS)
-        MAKE = mingw32-make
-    endif
-endif
-
 # Define compiler flags: CFLAGS
 #------------------------------------------------------------------------------------------------
 #  -O1                  defines optimization level
@@ -186,6 +176,8 @@ endif
 #  -D_DEFAULT_SOURCE    use with -std=c99 on Linux and PLATFORM_WEB, required for timespec
 CFLAGS = -std=c99 -Wall -Wno-missing-braces -Wno-unused-value -Wno-pointer-sign -D_DEFAULT_SOURCE $(PROJECT_CUSTOM_FLAGS)
 #CFLAGS += -Wextra -Wmissing-prototypes -Wstrict-prototypes
+
+CXXFLAGS = -std=c++17 -Wall $(PROJECT_CUSTOM_FLAGS)
 
 ifeq ($(BUILD_MODE),DEBUG)
     CFLAGS += -g -D_DEBUG
@@ -344,6 +336,7 @@ endif
 # Define all object files from source files
 #------------------------------------------------------------------------------------------------
 OBJS = $(patsubst %.c, %.o, $(PROJECT_SOURCE_FILES))
+OBJS += $(patsubst %.cpp, %.o, $(PROJECT_SOURCE_FILES))
 
 # Define processes to execute
 #------------------------------------------------------------------------------------------------
@@ -363,24 +356,14 @@ all:
 
 # Project target defined by PROJECT_NAME
 $(PROJECT_NAME): $(OBJS)
-	$(CC) -o $(PROJECT_BUILD_PATH)/$(PROJECT_NAME)$(EXT) $(OBJS) $(CFLAGS) $(INCLUDE_PATHS) $(LDFLAGS) $(LDLIBS) -D$(PLATFORM)
+	$(CXX) -o $(PROJECT_BUILD_PATH)/$(PROJECT_NAME)$(EXT) $(OBJS) $(CXXFLAGS) $(INCLUDE_PATHS) $(LDFLAGS) $(LDLIBS) -D$(PLATFORM)
 
 # Compile source files
 # NOTE: This pattern will compile every module defined on $(OBJS)
 %.o: %.c
 	$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE_PATHS) -D$(PLATFORM)
-
-# Compiler and flags
-CXX      ?= g++
-CXXFLAGS ?= -Wall -std=c++17
-
-# Example build rule for main.cpp
-main.o: main.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE_PATHS) -c $< -o $@
-
-# Example linking rule
-raylib_game: main.o
-	$(CXX) $(CXXFLAGS) main.o -o raylib_game $(LIBS)
+%.o: %.cpp
+    $(CXX) -c $< -o $@ $(CXXFLAGS) $(INCLUDE_PATHS) -D$(PLATFORM)
 
 .PHONY: clean_shell_cmd clean_shell_sh
 
