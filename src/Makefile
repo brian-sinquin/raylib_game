@@ -370,6 +370,18 @@ $(PROJECT_NAME): $(OBJS)
 %.o: %.c
 	$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE_PATHS) -D$(PLATFORM)
 
+# Compiler and flags
+CXX      ?= g++
+CXXFLAGS ?= -Wall -std=c++17
+
+# Example build rule for main.cpp
+main.o: main.cpp
+    $(CXX) $(CXXFLAGS) $(INCLUDE_PATHS) -c $< -o $@
+
+# Example linking rule
+raylib_game: main.o
+    $(CXX) $(CXXFLAGS) main.o -o raylib_game $(LIBS)
+
 .PHONY: clean_shell_cmd clean_shell_sh
 
 # Clean everything
