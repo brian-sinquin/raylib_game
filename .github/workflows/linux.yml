@@ -70,13 +70,13 @@ jobs:
         cp ${{ env.PROJECT_NAME }}/README.md ${{ env.PROJECT_RELEASE_PATH }}
         cp ${{ env.PROJECT_NAME }}/LICENSE ${{ env.PROJECT_RELEASE_PATH }}
         ls ${{ env.PROJECT_RELEASE_PATH }}
-        # 7z a ./${{ env.PROJECT_RELEASE_PATH }}.zip ./${{ env.PROJECT_RELEASE_PATH }}
+        7z a ./${{ env.PROJECT_RELEASE_PATH }}.zip ./${{ env.PROJECT_RELEASE_PATH }}
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ env.PROJECT_RELEASE_PATH }}
-        path: ./${{ env.PROJECT_RELEASE_PATH }}
+        name: ${{ env.PROJECT_RELEASE_PATH }}.zip
+        path: ./${{ env.PROJECT_RELEASE_PATH }}.zip
 
     - name: Upload Artifact to Release
       uses: softprops/action-gh-release@v1
