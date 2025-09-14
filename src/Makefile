@@ -33,7 +33,7 @@ PROJECT_NAME          ?= raylib_game
 PROJECT_VERSION       ?= 1.0
 PROJECT_BUILD_PATH    ?= .
 PROJECT_SOURCE_FILES  ?= \
-	main.cpp \
+	main.cpp
 
 # raylib library variables
 RAYLIB_SRC_PATH       ?= ../../raylib/src
@@ -335,8 +335,10 @@ endif
 
 # Define all object files from source files
 #------------------------------------------------------------------------------------------------
-OBJS = $(patsubst %.c, %.o, $(PROJECT_SOURCE_FILES))
-OBJS += $(patsubst %.cpp, %.o, $(PROJECT_SOURCE_FILES))
+# Normalize PROJECT_SOURCE_FILES into SRCS and then to OBJS to avoid passing source files
+# directly to the linker (some patterns or manual invocations may include sources).
+SRCS := $(strip $(PROJECT_SOURCE_FILES))
+OBJS := $(patsubst %.c, %.o, $(patsubst %.cpp, %.o, $(SRCS)))
 
 # Define processes to execute
 #------------------------------------------------------------------------------------------------
