@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required(VERSION 3.25)
 project(raylib-game-template)
 
 include(FetchContent)
@@ -49,6 +49,6 @@ target_link_libraries(${PROJECT_NAME} raylib)
 # Web Configurations
 if ("${PLATFORM}" STREQUAL "Web")
     # Tell Emscripten to build an example.html file.
-    # set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".html")
+    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".html")
     target_link_options(${PROJECT_NAME} PUBLIC -s USE_GLFW=3 PUBLIC --preload-file resources)
 endif()
