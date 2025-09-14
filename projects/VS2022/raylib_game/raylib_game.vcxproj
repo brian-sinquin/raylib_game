@@ -359,10 +359,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\screens.h" />
+    
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\main.c" />
+    <ClCompile Include="..\..\..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\..\..\src\main.rc" />
@@ -370,4 +370,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <PropertyGroup>
+    <LanguageStandard>stdcpp17</LanguageStandard>
+  </PropertyGroup>
 </Project>

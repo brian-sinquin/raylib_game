@@ -1,6 +1,10 @@
 
 
 #include "raylib.h"
+#include "CONSTANTS.h"
+#include <stdio.h>
+#include <string>
+#include "utils/json.h"
 
 #if defined(PLATFORM_WEB)
     #include <emscripten/emscripten.h>
@@ -33,10 +37,13 @@ static void UpdateDrawFrame(void);          // Update and draw one frame
 int main(void)
 {
     // Initialization
-    //---------------------------------------------------------
-    InitWindow(screenWidth, screenHeight, "raylib game template");
 
-    InitAudioDevice();      // Initialize audio device
+    //---------------------------------------------------------
+        std::string version = std::to_string(VERSION_MAJOR) + "." + std::to_string(VERSION_MINOR) + "." + std::to_string(VERSION_PATCH);
+        std::string windowTitle = "raylib game - v" + version;
+        InitWindow(screenWidth, screenHeight, windowTitle.c_str());
+       
+        InitAudioDevice();      // Initialize audio device
 
 
 #if defined(PLATFORM_WEB)
