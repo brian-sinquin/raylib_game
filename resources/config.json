@@ -1,0 +1,13 @@
+{
+    "fullscreen": false,
+    "windowWidth": 800,
+    "windowHeight": 600,
+    "targetFPS": 80,
+    "mapWidth": 10,
+    "mapHeight": 8,
+    "tileSize": 64,
+    "initialFood": 50,
+    "initialWood": 50,
+    "initialStone": 50,
+    "initialPopulation": 10
+}

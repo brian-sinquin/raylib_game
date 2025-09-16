@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.25)
 project(raylib-game-template)
 
 include(FetchContent)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Generate compile_commands.json

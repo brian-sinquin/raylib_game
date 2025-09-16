@@ -179,7 +179,7 @@ endif
 CFLAGS = -std=c99 -Wall -Wno-missing-braces -Wno-unused-value -Wno-pointer-sign -D_DEFAULT_SOURCE $(PROJECT_CUSTOM_FLAGS)
 #CFLAGS += -Wextra -Wmissing-prototypes -Wstrict-prototypes
 
-CXXFLAGS = -std=c++17 -Wall $(PROJECT_CUSTOM_FLAGS)
+CXXFLAGS = -std=c++20 -Wall $(PROJECT_CUSTOM_FLAGS)
 
 ifeq ($(BUILD_MODE),DEBUG)
 	CFLAGS += -g -D_DEBUG
