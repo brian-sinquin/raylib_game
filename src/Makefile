@@ -33,7 +33,8 @@ PROJECT_NAME          ?= raylib_game
 PROJECT_VERSION       ?= 1.0
 PROJECT_BUILD_PATH    ?= .
 PROJECT_SOURCE_FILES  ?= \
-	main.cpp
+	main.cpp \
+	core/game.cpp
 
 # raylib library variables
 RAYLIB_SRC_PATH       ?= ../../raylib/src

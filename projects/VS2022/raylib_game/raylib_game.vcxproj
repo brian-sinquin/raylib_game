@@ -363,6 +363,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\main.cpp" />
+    <ClCompile Include="..\..\..\src\core\game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\..\..\src\main.rc" />
@@ -371,6 +372,6 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <PropertyGroup>
-    <LanguageStandard>stdcpp17</LanguageStandard>
+    <LanguageStandard>stdcpp20</LanguageStandard>
   </PropertyGroup>
 </Project>
