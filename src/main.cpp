@@ -17,7 +17,7 @@ int main(void)
 
     // Run the game loop
     #if defined(PLATFORM_WEB)
-        emscripten_set_main_loop([]() { game.Run(); }, 0, 1);
+        emscripten_set_main_loop([&]() { game.Run(); }, 0, 1);
     #else
         game.Run();
     #endif
