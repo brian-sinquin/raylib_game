@@ -5,9 +5,22 @@
     #include <emscripten/emscripten.h>
 #endif
 
+// Static game instance for WebAssembly
+static Game* gameInstance = nullptr;
+
+// Static function for Emscripten main loop
+static void MainLoop()
+{
+    if (gameInstance)
+    {
+        gameInstance->Run();
+    }
+}
+
 int main(void)
 {
     Game game;
+    gameInstance = &game;
 
     // Initialize the game
     if (!game.Initialize())
@@ -17,7 +30,7 @@ int main(void)
 
     // Run the game loop
     #if defined(PLATFORM_WEB)
-        emscripten_set_main_loop([&]() { game.Run(); }, 0, 1);
+        emscripten_set_main_loop(MainLoop, 0, 1);
     #else
         game.Run();
     #endif
