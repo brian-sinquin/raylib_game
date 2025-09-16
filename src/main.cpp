@@ -30,7 +30,7 @@ int main(void)
 
     // Run the game loop
     #if defined(PLATFORM_WEB)
-        emscripten_set_main_loop(MainLoop, 0, 1);
+        emscripten_set_main_loop(MainLoop, 60, 1);
     #else
         game.Run();
     #endif
