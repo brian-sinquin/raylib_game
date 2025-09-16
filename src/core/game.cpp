@@ -1,5 +1,5 @@
 #include "game.h"
-#include <format>
+#include <sstream>
 
 // Game Implementation
 Game::Game() : systemManager(nullptr)
@@ -15,8 +15,9 @@ Game::~Game()
 bool Game::Initialize()
 {
     // Create window title with version
-    std::string windowTitle = std::format("{} v{}.{}.{}",
-        GAME_TITLE, VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH);
+    std::stringstream ss;
+    ss << GAME_TITLE << " v" << VERSION_MAJOR << "." << VERSION_MINOR << "." << VERSION_PATCH;
+    std::string windowTitle = ss.str();
 
     // Initialize raylib
     InitWindow(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT, windowTitle.c_str());

@@ -181,6 +181,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;PLATFORM_DESKTOP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs>Default</CompileAs>
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\src;$(SolutionDir)..\..\src\external;$(SolutionDir)..\..\..\raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -199,6 +200,7 @@
       <CompileAs>Default</CompileAs>
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\src;$(SolutionDir)..\..\src\external;$(SolutionDir)..\..\..\raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -216,6 +218,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;PLATFORM_DESKTOP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs>Default</CompileAs>
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\src;$(SolutionDir)..\..\src\external;$(SolutionDir)..\..\..\raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -237,6 +240,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;PLATFORM_DESKTOP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs>Default</CompileAs>
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\src;$(SolutionDir)..\..\src\external;$(SolutionDir)..\..\..\raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -263,6 +267,7 @@
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -287,6 +292,7 @@
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -309,6 +315,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\src;$(SolutionDir)..\..\src\external;$(SolutionDir)..\..\..\raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>Default</CompileAs>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -337,6 +344,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\src;$(SolutionDir)..\..\src\external;$(SolutionDir)..\..\..\raylib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>Default</CompileAs>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

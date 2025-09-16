@@ -293,11 +293,14 @@ namespace seecs
                 // Check collisions between all pairs of entities
                 for (size_t i = 0; i < entities.size(); ++i) {
                     for (size_t j = i + 1; j < entities.size(); ++j) {
-                        auto& [id1, components1] = entities[i];
-                        auto& [id2, components2] = entities[j];
+                        auto& pack1 = entities[i];
+                        auto& pack2 = entities[j];
 
-                        auto& [transform1, collider1] = components1;
-                        auto& [transform2, collider2] = components2;
+                        seecs::EntityID id1 = pack1.id;
+                        seecs::EntityID id2 = pack2.id;
+
+                        auto& [transform1, collider1] = pack1.components;
+                        auto& [transform2, collider2] = pack2.components;
 
                         Rectangle rect1 = {
                             transform1.position.x - collider1.bounds.width / 2.0f,
@@ -316,7 +319,7 @@ namespace seecs
                         if (CheckCollisionRecs(rect1, rect2)) {
                             // Handle collision - for now just print
                             // In a real game, you'd dispatch collision events
-                            std::cout << "Collision detected between entities " << id1 << " and " << id2 << std::endl;
+                            std::cout << "Collision detected between entities " << static_cast<unsigned long long>(id1) << " and " << static_cast<unsigned long long>(id2) << std::endl;
                         }
                     }
                 }
